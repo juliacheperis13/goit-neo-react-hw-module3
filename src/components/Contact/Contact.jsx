@@ -1,7 +1,7 @@
 import { FaUser, FaPhone } from "react-icons/fa6";
 import css from "./Contact.module.css";
 
-const Contact = ({ name, number, id, handleDelete }) => {
+const Contact = ({ name, phone, id, handleDelete }) => {
   return (
     <div className={css.contact}>
       <div>
@@ -11,7 +11,7 @@ const Contact = ({ name, number, id, handleDelete }) => {
         </p>
         <p>
           <FaPhone className={css.icon} />
-          {number}
+          {phone}
         </p>
       </div>
       <button

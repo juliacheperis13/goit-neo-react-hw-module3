@@ -5,11 +5,11 @@ const ContactList = ({ contacts, handleDelete }) => {
   return (
     <ul className={css.contactList}>
       {contacts.length > 0 ? (
-        contacts.map(({ id, name, number }) => (
+        contacts.map(({ id, name, phone }) => (
           <li key={id} className="container">
             <Contact
               name={name}
-              number={number}
+              phone={phone}
               id={id}
               handleDelete={handleDelete}
             />

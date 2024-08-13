@@ -16,7 +16,7 @@ const validationSchema = Yup.object({
     .min(3, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-    phone: Yup.string()
+  phone: Yup.string()
     .min(3, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
@@ -30,7 +30,7 @@ const ContactForm = ({ submitHandler }) => {
       onSubmit={submitHandler}
       validationSchema={validationSchema}
     >
-      {({ errors, touched, isValid }) => (
+      {({ errors, touched, isValid, dirty }) => (
         <Form className="form container">
           <div className="inputContainer">
             <label>Name</label>
@@ -60,7 +60,7 @@ const ContactForm = ({ submitHandler }) => {
           <button
             className={clsx("button", "primary", "selfCenter")}
             type="submit"
-            disabled={!isValid}
+            disabled={!isValid || !dirty}
           >
             Add contact
           </button>
