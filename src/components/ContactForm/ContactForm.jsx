@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 const initialValues = {
   name: "",
-  number: "",
+  phone: "",
 };
 
 const getStyles = (errors, touched, fieldName) => {
@@ -16,7 +16,7 @@ const validationSchema = Yup.object({
     .min(3, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  number: Yup.string()
+    phone: Yup.string()
     .min(3, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
@@ -30,7 +30,7 @@ const ContactForm = ({ submitHandler }) => {
       onSubmit={submitHandler}
       validationSchema={validationSchema}
     >
-      {({ errors, touched, isValid, dirty }) => (
+      {({ errors, touched, isValid }) => (
         <Form className="form container">
           <div className="inputContainer">
             <label>Name</label>
@@ -49,12 +49,12 @@ const ContactForm = ({ submitHandler }) => {
           <div className="inputContainer">
             <label>Number</label>
             <Field
-              className={clsx("input", getStyles(errors, touched, "number"))}
+              className={clsx("input", getStyles(errors, touched, "phone"))}
               type="text"
-              name="number"
+              name="phone"
               placeholder="000-00-00"
             />
-            <ErrorMessage className="error" name="number" component="span" />
+            <ErrorMessage className="error" name="phone" component="span" />
           </div>
 
           <button

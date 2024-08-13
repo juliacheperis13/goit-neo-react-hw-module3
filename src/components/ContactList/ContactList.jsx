@@ -16,7 +16,7 @@ const ContactList = ({ contacts, handleDelete }) => {
           </li>
         ))
       ) : (
-        <p>No contacts found</p>
+        <p className={css.message}>No contacts found</p>
       )}
     </ul>
   );
